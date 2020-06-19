@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/test/hello','TestController@hello');
+Route::get('/test/redis1','TestController@redis1');
+
 
 
 //商品
