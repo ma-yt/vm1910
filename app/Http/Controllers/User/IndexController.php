@@ -35,7 +35,7 @@ class IndexController extends Controller
         $data['password'] = password_hash($password,PASSWORD_DEFAULT);
         $user = UserModel::insert($data);
         if($user){
-                redirect('user/login');
+            return redirect('user/login');
         }
     }
 
