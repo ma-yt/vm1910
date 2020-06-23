@@ -20,4 +20,5 @@ class TestController extends Controller
         var_dump($val);
         echo '$val:'.$val;
     }
+
 }
