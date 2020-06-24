@@ -44,7 +44,7 @@ class IndexController extends Controller
         return view('user/login');
     }
 
-    public function logindo(){
+    public function logindo(Request $request){
         $user_name = request()->post('user_name');
         $password = request()->post('password');
         $user = UserModel::where(['user_name'=>$user_name])->first();
