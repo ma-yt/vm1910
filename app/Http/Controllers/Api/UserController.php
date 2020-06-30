@@ -103,12 +103,9 @@ class UserController extends Controller
     }
 
     //个人中心
-    public function center(){
+    public function center(Request $request){
 
-        //判断用户是否登录，判断是否有uid字段
-        $token = $_GET['token'];
-
-        //检验token是否有效
+        $token = $request->input('token');
         $tid = Redis::get($token);
 
         if($tid){
@@ -119,5 +116,48 @@ class UserController extends Controller
             echo '请登录';
         }
 
+    }
+
+
+    //我的订单
+    public function orders(){
+
+
+
+        $arr = [
+            '1234567890',
+            '1234567891',
+            '0987654321',
+            '10987654321'
+        ];
+
+        $response = [
+            'errno'=>0,
+            'msg'=>'ok',
+            'data'=>[
+                'orders'=>$arr
+            ]
+        ];
+        return $response;
+    }
+
+
+    //购物车
+    public function cart(){
+
+        $goods = [
+            123,
+            456,
+            789
+        ];
+
+        $response = [
+            'errno'=>0,
+            'msg'=>'ok',
+            'data'=>[
+                'cart'=>$goods
+            ]
+        ];
+        return $response;
     }
 }
